@@ -32,7 +32,8 @@ class Product:
             stock_article = available_articles.get(product_article.id)
             times = int(stock_article.available_stock / product_article.quantity)
             if times <= 0:
-                return 0
+                self.possible_quantity = 0
+                return self.possible_quantity
 
             if times < possible_quantity:
                 possible_quantity = times

@@ -45,3 +45,5 @@ and remove products one by one with an associated quantity.
 
 There are no state changes saved to the file `inventory.json` nor to any other new file to write the result,
 that is intentionally, and the result will default to stdout for demo purposes.
+CPU bound,
+need to calculate the availability of products every time 1 gets removed
