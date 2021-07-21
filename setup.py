@@ -1,27 +1,24 @@
-"""
-CLI Warehouse 
-"""
 from setuptools import find_packages, setup
 
-dependencies = ['click']
+dependencies = ["click"]
 
 setup(
-    name='warehouse-cli',
-    version='0.1.0',
-    url='warehouse',
-    license='BSD 3',
-    author='Enido Shatro',
-    author_email='enido.shatro@gmail.com',
-    description='CLI Warehouse',
+    name="warehouse-cli",
+    version="0.1.0",
+    url="warehouse",
+    license="BSD 3",
+    author="Enido Shatro",
+    author_email="enido.shatro@gmail.com",
+    description="CLI Warehouse",
     long_description=__doc__,
-    packages=find_packages(exclude=['tests']),
+    packages=find_packages(exclude=["tests"]),
     include_package_data=True,
     zip_safe=False,
-    platforms='any',
+    platforms="any",
     install_requires=dependencies,
     entry_points={
-        'console_scripts': [
-            'warehouse-cli = warehouse_cli.cli:main',
+        "console_scripts": [
+            "warehouse-cli = warehouse_cli.cli:main",
         ],
     },
     classifiers=[
@@ -29,20 +26,20 @@ setup(
         # 'Development Status :: 1 - Planning',
         # 'Development Status :: 2 - Pre-Alpha',
         # 'Development Status :: 3 - Alpha',
-        'Development Status :: 4 - Beta',
+        "Development Status :: 4 - Beta",
         # 'Development Status :: 5 - Production/Stable',
         # 'Development Status :: 6 - Mature',
         # 'Development Status :: 7 - Inactive',
-        'Environment :: Console',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Operating System :: POSIX',
-        'Operating System :: MacOS',
-        'Operating System :: Unix',
-        'Operating System :: Microsoft :: Windows',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 3',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-    ]
+        "Environment :: Console",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: POSIX",
+        "Operating System :: MacOS",
+        "Operating System :: Unix",
+        "Operating System :: Microsoft :: Windows",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 3",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+    ],
 )

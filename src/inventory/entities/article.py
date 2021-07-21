@@ -1,5 +1,7 @@
 class Article:
-    def __init__(self, id: int, name: str = None, available_stock: int = 0, quantity: int = 0):
+    def __init__(
+        self, id: int, name: str = None, available_stock: int = 0, quantity: int = 0
+    ):
         self.id = id
         self.name = name
         self.available_stock = available_stock

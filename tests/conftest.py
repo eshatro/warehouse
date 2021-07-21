@@ -1,4 +1,5 @@
 import pytest
+
 from warehouse_cli.cli import get_raw_data
 
 
