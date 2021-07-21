@@ -98,6 +98,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: enidoshatro/lab:${{steps.docker_build.outputs.digest}}
+          tags: enidoshatro/lab:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
