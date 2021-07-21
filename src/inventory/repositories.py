@@ -1,5 +1,6 @@
-from typing import List, Dict
-from src.inventory.entities import Product, Article
+from typing import Dict, List
+
+from src.inventory.entities import Article, Product
 
 
 class ProductRepository:
@@ -19,4 +20,6 @@ class ProductRepository:
     def remove_one_product(self, products, product_idx: int, quantity: int):
         product = products.pop(product_idx)
         for product_article in product.articles:
-            self.inventory_articles[product_article.id].available_stock -= (quantity * product_article.quantity)
+            self.inventory_articles[product_article.id].available_stock -= (
+                quantity * product_article.quantity
+            )

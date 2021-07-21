@@ -1,14 +1,15 @@
 from typing import List
+
 from .article import Article
 
 
 class Product:
     def __init__(
-            self,
-            name: str,
-            articles: List[Article],
-            price: float = None,
-            possible_quantity: int = None,
+        self,
+        name: str,
+        articles: List[Article],
+        price: float = None,
+        possible_quantity: int = None,
     ):
         self.name = name
         self.price = price
@@ -42,5 +43,7 @@ class Product:
         return possible_quantity
 
     def are_product_articles_in_stock(self, available_articles):
-        return self.product_articles.issubset(available_articles) and self.calculate_possible_quantity(
-            available_articles) > 0
+        return (
+            self.product_articles.issubset(available_articles)
+            and self.calculate_possible_quantity(available_articles) > 0
+        )
