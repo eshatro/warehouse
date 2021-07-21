@@ -1,5 +1,6 @@
 from abc import ABC
-from src.inventory.validators import val_str, val_int, check_type
+
+from src.inventory.validators import check_type, val_int, val_str
 
 
 class Serializer(ABC):
@@ -58,14 +59,16 @@ class Serializer(ABC):
                 if not field.get("validator"):
                     continue
 
-                new_field.update({
-                    field["name"]: field.get("validator")(item).message
-                })
+                new_field.update({field["name"]: field.get("validator")(item).message})
 
                 if field.get("serializer"):
-                    new_field.update({
-                        field["name"]: [i for i in field["serializer"](item).validated_data]
-                    })
+                    new_field.update(
+                        {
+                            field["name"]: [
+                                i for i in field["serializer"](item).validated_data
+                            ]
+                        }
+                    )
 
             yield new_field
 
@@ -76,8 +79,18 @@ class ArticleSerializer(Serializer):
     fields = {
         "art_id": {"name": "id", "type": int, "validator": val_int},
         "name": {"name": "name", "type": str, "validator": val_str},
-        "stock": {"name": "available_stock", "type": int, "default": 0, "validator": val_int},
-        "amount_of": {"name": "quantity", "type": int, "default": 0, "validator": val_int},
+        "stock": {
+            "name": "available_stock",
+            "type": int,
+            "default": 0,
+            "validator": val_int,
+        },
+        "amount_of": {
+            "name": "quantity",
+            "type": int,
+            "default": 0,
+            "validator": val_int,
+        },
     }
 
 
@@ -86,6 +99,10 @@ class ProductSerializer(Serializer):
     required_fields = ["name", "contain_articles"]
     fields = {
         "name": {"name": "name", "type": str, "validator": val_str},
-        "contain_articles": {"name": "articles", "type": list, "serializer": ArticleSerializer,
-                             "validator": check_type},
+        "contain_articles": {
+            "name": "articles",
+            "type": list,
+            "serializer": ArticleSerializer,
+            "validator": check_type,
+        },
     }
