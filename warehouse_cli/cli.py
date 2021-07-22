@@ -47,7 +47,8 @@ def main(inventory_file, product_file):
     }
     products = [product for product in products_factory(validated_product_data)]
 
-    # init the product repository to deal with getting all available products and deleting a product
+    # init the product repository to deal with getting
+    # all available products and deleting a product
     product_repository = ProductRepository(products, inventory_articles)
     ps = product_repository.products
 
@@ -78,7 +79,8 @@ def main(inventory_file, product_file):
         selected_product_to_remove = ps[product_index]
 
         if not click.confirm(
-            f"Product {selected_product_to_remove} is going to be deleted.\nDo you want to continue?"
+            f"Product {selected_product_to_remove} is going to be deleted.\n"
+            f"Do you want to continue?"
         ):
             return
 
@@ -94,7 +96,8 @@ def main(inventory_file, product_file):
         product_repository.remove_one_product(
             product_repository.all_available_products(), product_index, int(quantity)
         )
-        # TODO: write the new state of inventory into a stdout file as a means of data persistence.
+        # TODO: write the new state of inventory into a stdout
+        #  file as a means of data persistence.
         # currently defaulting to stdout
         click.echo(f"Deleted product: {ps[product_index]}")
         inventory = [

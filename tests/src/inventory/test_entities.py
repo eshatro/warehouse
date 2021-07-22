@@ -16,7 +16,8 @@ def test_article(article_data, expected):
 
 
 @pytest.mark.parametrize(
-    "product_data, inventory_articles, expected_product_str, expected_product_articles, "
+    "product_data, inventory_articles, expected_product_str, "
+    "expected_product_articles, "
     "are_products_in_stock, expected_possible_quantity",
     [
         (
