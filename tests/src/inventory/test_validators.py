@@ -1,6 +1,6 @@
 import pytest
 
-from src.inventory.validators import *
+from src.inventory.validators import check_type, val_int, val_str
 
 
 @pytest.mark.parametrize(

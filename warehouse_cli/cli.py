@@ -53,7 +53,7 @@ def main(inventory_file, product_file):
     ps = product_repository.products
 
     if len(product_repository.all_available_products()) == 0:
-        click.echo(f"No available products, update inventory!")
+        click.echo("No available products, update inventory!")
         return
 
     while len(product_repository.all_available_products()) > 0:
@@ -79,14 +79,14 @@ def main(inventory_file, product_file):
         selected_product_to_remove = ps[product_index]
 
         if not click.confirm(
-            f"Product {selected_product_to_remove} is going to be deleted.\nDo you want to continue?"
+                f"Product {selected_product_to_remove} is going to be deleted.\nDo you want to continue?"
         ):
             return
 
         quantity = selected_product_to_remove.possible_quantity
         if quantity > 1:
             quantity = click.prompt(
-                f"Choose a quantity for the selected product: \n",
+                "Choose a quantity for the selected product: \n",
                 type=click.Choice([str(i) for i in range(1, quantity + 1)]),
                 show_choices=True,
             )
@@ -104,7 +104,7 @@ def main(inventory_file, product_file):
         ]
         click.echo(f"Inventory: \n {inventory} \n")
     return click.echo(
-        f"There are no available Articles in the inventory, update inventory!"
+        "There are no available Articles in the inventory, update inventory!"
     )
 
 
