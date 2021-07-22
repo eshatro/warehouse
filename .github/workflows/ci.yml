@@ -16,16 +16,16 @@ on:
 
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Set up Python 3.9
+#        uses: actions/setup-python@v2
+#        with:
+#          python-version: 3.9
 
   linter:
     runs-on: ubuntu-latest
@@ -56,6 +56,21 @@ jobs:
         run: |
           pip install isort
           isort . --check
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Code Repository
+        uses: actions/checkout@v2
+
+      - name: Run test coverage
+        run: |
+            make build
+            make run-tests
+
+      - name: Tear down the cli app
+        run: make clean
 
 #  migration:
 #    runs-on: ubuntu-latest
