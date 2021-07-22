@@ -61,21 +61,6 @@ jobs:
       - name: Tear down the cli app
         run: make clean
 
-#  migration:
-#    runs-on: ubuntu-latest
-#    steps:
-#        - name: Build the Stack
-#          run:  docker build -t warehouse_cli --rm .
-#
-#        # - name: Run DB Migrations
-#        #  run:  docker-compose -f local.yml run --rm django python manage.py migrate
-#
-#        - name: Run Django Tests
-#          run:  ddocker run -it --name warehouse_app --rm warehouse_cli coverage run -m pytest -vv
-#
-#        - name: Tear down the Stack
-#          run:  docker image rm warehouse_cli
-
   # With no caching at all the entire ci process takes 4m 30s to complete!
   publish:
     runs-on: ubuntu-latest
