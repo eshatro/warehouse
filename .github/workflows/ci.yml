@@ -42,12 +42,18 @@ jobs:
       # Run all pre-commit hooks on all the files.
       # Getting only staged files can be tricky in case a new PR is opened
       # since the action is run on a branch in detached head state
-      - name: Install and Run Pre-commit
+      - name: Install and Run Flake8
         run: |
           pip install flake8
           flake8
+
+      - name: Install and Run Black
+        run: |
           pip install black
           black . --check
+
+      - name: Install and Run isort
+        run: |
           pip install isort
           isort . --check
 

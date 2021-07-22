@@ -2,7 +2,7 @@ import json
 
 import click
 
-from src.inventory.entities.factories import products_factory, inventory_factory
+from src.inventory.entities.factories import inventory_factory, products_factory
 from src.inventory.repositories import ProductRepository
 from src.inventory.serializers import ArticleSerializer, ProductSerializer
 
