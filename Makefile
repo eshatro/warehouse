@@ -8,7 +8,7 @@ start:
 	docker run -it --name warehouse_app --rm warehouse_cli warehouse-cli -if inventory.json -pf products.json
 
 run-tests:
-	docker run --name warehouse_app --rm warehouse_cli coverage run -m pytest -vv
+	docker run --name warehouse_app --rm warehouse_cli coverage run -m pytest --cov-report term --cov=warehouse_cli
 
 clean:
 	docker image rm warehouse_cli
