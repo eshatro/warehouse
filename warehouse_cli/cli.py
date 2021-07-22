@@ -2,8 +2,7 @@ import json
 
 import click
 
-from src.inventory.entities.factories import (inventory_factory,
-                                              products_factory)
+from src.inventory.entities.factories import inventory_factory, products_factory
 from src.inventory.repositories import ProductRepository
 from src.inventory.serializers import ArticleSerializer, ProductSerializer
 
@@ -79,7 +78,7 @@ def main(inventory_file, product_file):
         selected_product_to_remove = ps[product_index]
 
         if not click.confirm(
-                f"Product {selected_product_to_remove} is going to be deleted.\nDo you want to continue?"
+            f"Product {selected_product_to_remove} is going to be deleted.\nDo you want to continue?"
         ):
             return
 
