@@ -78,14 +78,14 @@ jobs:
       - name: Build and push latest from master
         if: ${{ github.ref == 'refs/heads/main' }}
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           push: true
           tags: enidoshatro/lab:warehouse_cli-latest
       - name: Build and push from merge request branch
         if: ${{ github.ref != 'refs/heads/main' }}
         id: docker_build_branch
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           push: true
           tags: enidoshatro/lab:warehouse_cli-${{github.sha}}
